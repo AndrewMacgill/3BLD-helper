@@ -14,7 +14,7 @@ simpleScramble = getScrambledLetterPositions(letters, ['U2'])
 scrambledPieces = getScrambledLetterPositions(letters, newScramble)
 
 os.system('cls')
-edgeMemo1, cornerMemo1 = createMemo1(scrambledPieces)
+parity, edgeMemo1, cornerMemo1 = createMemo1(scrambledPieces)
 
 
 
@@ -22,8 +22,13 @@ def pair_join(chars):
     return [''.join(chars[i:i+2]) for i in range(0, len(chars), 2)]
 
 
+def stringifyList(my_list):
+    return ", ".join(my_list)
+
+
 print('----------------------------------------------------------------------------------------------------------------------------------------------')
-print('The Following Scramble is: ' + str(newScramble))
+print("parity is " + str(parity))
+print('\nThe Following Scramble is: ' + stringifyList(newScramble))
 print("\nThe edge memo is: " + str(pair_join(edgeMemo1)))
 print("\nThe corner memo is: " + str(pair_join(cornerMemo1)))
 print('----------------------------------------------------------------------------------------------------------------------------------------------')
