@@ -683,7 +683,6 @@ def createMemo1(scrambledPieces):
         if letter in cornerMemo:
             cornerMemo.remove(letter)
     parity = haveParity(cornerMemo)
-    print("parity is " + str(parity))
     if parity:
         cornerMemo.append('B')
         correctEdgeOrder = final_parity_order
@@ -715,7 +714,7 @@ def createMemo1(scrambledPieces):
         edgeMemo = edgeMemoLetterSwaps(edgeMemo)
     if cornerMemo[-2:] == ['B', 'B']:
         cornerMemo = cornerMemo[:-2]
-    return edgeMemo, cornerMemo
+    return parity, edgeMemo, cornerMemo
 
 
 def haveParity(cornerMemo):
